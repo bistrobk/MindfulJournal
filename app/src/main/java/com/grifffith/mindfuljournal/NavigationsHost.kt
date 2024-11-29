@@ -1,35 +1,55 @@
-// AppNavigation.kt
-package com.griffith.outfitter.outfit
+package com.grifffith.mindfuljournal
 
+import BottomNavigationBar
+import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.grifffith.mindfuljournal.FitnessScreen
-import com.grifffith.mindfuljournal.HomeScreen
-import com.grifffith.mindfuljournal.JournalScreen
+import androidx.navigation.compose.currentBackStackEntryAsState
 
-//setting the navigation for the app
+sealed class Screen(val route: String) {
+    object Home : Screen("home")
+    object Journal : Screen("journal")
+    object Fitness : Screen("fitness")
+    object Mood : Screen("mood")
+    object Splash : Screen("splash")
+}
+
 @Composable
 fun AppNavigation(navController: NavHostController, modifier: Modifier = Modifier) {
+    // Get the current backstack entry
+    val navBackStackEntry = navController.currentBackStackEntryAsState()
+    val currentRoute = navBackStackEntry.value?.destination?.route
 
-    NavHost(navController = navController, startDestination = "home", modifier = modifier) {
-        // Composable function for the Home screen
-        composable("home") {
-            HomeScreen()
+    Column(modifier = modifier) {
+        // NavHost for screen navigation
+        NavHost(navController = navController, startDestination = Screen.Splash.route) {
+            composable(Screen.Splash.route) {
+                SplashScreen(navController)
+            }
+            composable(Screen.Home.route) {
+                HomeScreen()
+            }
+            composable(Screen.Journal.route) {
+                JournalScreen()
+            }
+            composable(Screen.Fitness.route) {
+                FitnessScreen()
+            }
+            composable(Screen.Mood.route) {
+
+                MoodScreen()
+
+
+            }
+
         }
 
-        // Composable function for the Search screen
-        composable("Journal") {
-
-            JournalScreen()
-        }
-
-        // Composable function for the Settings screen
-        composable("Fitness") {
-
-            FitnessScreen()
+        // Only show the BottomNavigationBar if the current screen is not Splash
+        if (currentRoute != Screen.Splash.route) {
+            BottomNavigationBar(navController = navController)
         }
     }
 }

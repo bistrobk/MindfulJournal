@@ -3,19 +3,24 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 
 @Composable
 fun BottomNavigationBar(navController: NavController) {
-    // Define navigation items with labels and routes only
     val items = listOf(
         BottomNavItem("Home", "home"),
         BottomNavItem("Journal", "journal"),
-        BottomNavItem("Fitness", "fitness")
+        BottomNavItem("Fitness", "fitness"),
+        BottomNavItem("Mood", "mood")
     )
+
+    // Navigation Bar with a custom background color
     NavigationBar(
-        containerColor = Color(0xFFE6E6FA)
+        containerColor = Color(0xFF02253B), // Background color of the bottom navigation bar
 
     ) {
         val navBackStackEntry = navController.currentBackStackEntryAsState()
@@ -23,8 +28,16 @@ fun BottomNavigationBar(navController: NavController) {
 
         items.forEach { item ->
             NavigationBarItem(
-                icon = {}, // Empty composable for no icon
-                label = { Text(item.label) },
+                icon = {}, // No icon, just text
+                label = {
+                    Text(
+                        text = item.label,
+                        color = if (currentRoute == item.route) Color.White else Color(0xFFBCC1C7), // Active text color (white) and inactive (light gray)
+                        fontSize = 16.sp, // Font size for the text
+                        fontWeight = if (currentRoute == item.route) FontWeight.Bold else FontWeight.Normal, // Bold for active item
+                        letterSpacing = 1.sp // Spacing between letters for a more polished look
+                    )
+                },
                 selected = currentRoute == item.route,
                 onClick = {
                     if (currentRoute != item.route) {
