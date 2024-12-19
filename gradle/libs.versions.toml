@@ -1,5 +1,17 @@
 [versions]
+accompanistPager = "<latest-version>"
+accompanistPermissions = "0.24.13-rc"
+accompanistPermissionsVersion = "<latest-version>"
 agp = "8.6.1"
+androidxComposeMaterial3Material3 = "1.2.0-beta02"
+androidxComposeMaterial3Material32 = "1.4.0-alpha02"
+androidxMaterial3 = "<compose_version>"
+androidxMaterial3Version = "1.1.0"
+animation = "1.7.6"
+animationCore = "1.5.1"
+animationVersion = "1.5.1"
+coilComposeVersion = "2.4.0"
+composeBomVersion = "2024.01.00"
 kotlin = "1.9.0"
 coreKtx = "1.15.0"
 junit = "4.13.2"
@@ -8,11 +20,44 @@ espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.8.7"
 activityCompose = "1.9.3"
 composeBom = "2024.04.01"
+material3 = "1.3.1"
+material3Version = "1.0.1"
+materialIconsExtended = "1.7.6"
 navigationRuntimeKtx = "2.8.4"
 navigationCompose = "2.8.4"
+material3Android = "1.3.1"
+material3Desktop = "1.3.1"
+composeMaterialIconsExtended = "1.5.0"  # Add the Compose Material Icons Extended version
+runtime = "1.5.1"
+ui = "1.5.1"
+uiTestAndroid = "1.7.6"
 
 [libraries]
+accompanist-pager = { module = "com.google.accompanist:accompanist-pager", version.ref = "accompanistPager" }
+accompanist-pager-indicators = { module = "com.google.accompanist:accompanist-pager-indicators", version.ref = "accompanistPager" }
+accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanistPermissions" }
+accompanist-permissions-vlatestversion = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanistPermissionsVersion" }
+activity-compose = { module = "androidx.activity:activity-compose" }
+androidx-animation = { module = "androidx.compose.animation:animation" }
+androidx-animation-core = { module = "androidx.compose.animation:animation-core", version.ref = "animationCore" }
+androidx-animation-v151 = { module = "androidx.compose.animation:animation", version.ref = "animationVersion" }
+androidx-compose-animation-animation = { module = "androidx.compose.animation:animation" }
+androidx-compose-material3-material3 = { module = "androidx.compose.material3:material3" }
+androidx-compose-bom-v20240100 = { module = "androidx.compose:compose-bom", version.ref = "composeBomVersion" }
+androidx-compose-material3-material32 = { module = "androidx.compose.material3:material3" }
+androidx-compose-runtime-runtime = { module = "androidx.compose.runtime:runtime" }
+androidx-compose-ui-ui = { module = "androidx.compose.ui:ui" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose" }
+androidx-material-icons-extended-v176 = { module = "androidx.compose.material:material-icons-extended", version.ref = "materialIconsExtended" }
+androidx-material3-v101 = { module = "androidx.compose.material3:material3", version.ref = "material3Version" }
+androidx-material3-v110 = { module = "androidx.compose.material3:material3", version.ref = "androidxMaterial3Version" }
+androidx-material3-v120beta02 = { module = "androidx.compose.material3:material3", version.ref = "androidxComposeMaterial3Material3" }
+androidx-material3-v140alpha02 = { module = "androidx.compose.material3:material3", version.ref = "androidxComposeMaterial3Material32" }
+androidx-material3-vcomposeversion = { module = "androidx.compose.material3:material3", version.ref = "androidxMaterial3" }
+androidx-runtime = { module = "androidx.compose.runtime:runtime" }
+animation = { module = "androidx.compose.animation:animation", version.ref = "animation" }
+coil-kt-coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilComposeVersion" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -28,8 +73,17 @@ androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 androidx-navigation-runtime-ktx = { group = "androidx.navigation", name = "navigation-runtime-ktx", version.ref = "navigationRuntimeKtx" }
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
+androidx-material3-android = { group = "androidx.compose.material3", name = "material3-android", version.ref = "material3Android" }
+androidx-material3-desktop = { group = "androidx.compose.material3", name = "material3-desktop", version.ref = "material3Desktop" }
+androidx-compose-material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended", version.ref = "composeMaterialIconsExtended" }
+material3 = { module = "androidx.compose.material3:material3", version.ref = "material3" }
+navigation-compose = { module = "androidx.navigation:navigation-compose" }
+runtime = { module = "androidx.compose.runtime:runtime", version.ref = "runtime" }
+ui = { module = "androidx.compose.ui:ui", version.ref = "ui" }
+ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
+ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
+androidx-ui-test-android = { group = "androidx.compose.ui", name = "ui-test-android", version.ref = "uiTestAndroid" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-
